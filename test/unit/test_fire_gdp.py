@@ -1,3 +1,4 @@
+from email import header
 import os
 import sys
 import unittest
@@ -12,6 +13,13 @@ class TestGetColumnIndex(unittest.TestCase):
         result = fire_gdp.get_column_index(header, 'Year')
 
         self.assertEqual(result, 1)
+
+    def test_name_missing(self):
+        header = ['Area', 'Year', 'Forest fires']
+
+        result = fire_gdp.get_column_index(header, 'GDP')
+
+        self.assertIsNone(result)
 
 if __name__ == '__main__':
     unittest.main()
