@@ -105,5 +105,23 @@ class TestGetData(unittest.TestCase):
 
         self.assertEqual(result, (expected_header, expected_rows))
 
+
+class TestGetFireGdpYearData(unittest.TestCase):
+
+    def test_brazil_2000(self):
+
+        co2_file = 'test/data/test_co2.csv'
+        gdp_file = 'test/data/test_gdp.csv'
+        country = 'Brazil'
+
+        result = fire_gdp.get_fire_gdp_year_data(co2_file, gdp_file, country)
+
+        expected = [
+            [2000, 150.5, 1000.0],
+            [2001, 200.2, 1200.0],
+        ]
+
+        self.assertEqual(result, expected)
+
 if __name__ == '__main__':
     unittest.main()
