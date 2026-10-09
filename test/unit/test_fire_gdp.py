@@ -21,5 +21,12 @@ class TestGetColumnIndex(unittest.TestCase):
 
         self.assertIsNone(result)
 
+    def test_empty_header(self):
+        header = []
+
+        result = fire_gdp.get_column_index(header, 'Year')
+
+        self.assertIsNone(result)
+
 if __name__ == '__main__':
     unittest.main()
