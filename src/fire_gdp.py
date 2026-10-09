@@ -12,7 +12,10 @@ def get_data(file_name,
 
         rows = []
         for row in reader:
-            rows.append(row)
+            if query_column is None or query_value is None:
+                rows.append(row)
+            elif row[query_column] == query_value:
+                rows.append(row)
 
     return rows
 
