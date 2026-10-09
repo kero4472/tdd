@@ -17,6 +17,9 @@ def get_data(file_name,
             elif row[query_column] == query_value:
                 rows.append(row)
 
+    if return_header:
+        return header, rows
+
     return rows
 
 
